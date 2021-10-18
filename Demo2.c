@@ -17,12 +17,11 @@ int steps1 = 0;
 int steps2 = 0;
 float wheelDiameter = 3;
 
-
 void config_pwmR(float period, float dutyCycle, int direction); // Sets up PWM #1 with a specified period
 void config_pwmL(float period, float dutyCycle, int direction); // Sets up PWM #2 with a specified period
 
-void updateMotorR(float dutyCycle, int direction);
-void updateMotorL(float dutyCylce, int direction);
+//void updateMotorR(float dutyCycle, int direction);
+//void updateMotorL(float dutyCylce, int direction);
 
 void __attribute__((interrupt, no_auto_psv)) _OC1Interrupt(void) {
 
@@ -176,19 +175,16 @@ void config_pwmL(float period, float dutyCycle, int direction)
 }
 
 
-void updateMotorR(float dutyCycle, int direction) {
-    
-    dutyCycle1 = (int)(PERIOD1 * dutyCycle);
-    
-    
-}
-
-void updateMotorL(float dutyCycle, int direction) {
-    
-    dutyCycle2 = (int)(PERIOD2 * dutyCycle);
-    
-    
-}
+//void updateMotorR(float dutyCycle, int direction) {
+//    
+//    
+//}
+//
+//void updateMotorL(float dutyCycle, int direction) {
+//
+//    
+//    
+//}
 /*
  
  
