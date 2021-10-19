@@ -14,14 +14,14 @@
 #pragma config FNOSC = LPRC
 
 int steps1 = 0;
-int steps2 = 0;
-float wheelDiameter = 3.5;
+int fullTurnSteps = 400; //Steps for full turn ~11 inches
+int pauseTime = 50; //Number of counts to wait
+float pi = 3.14159;
 
-void config_pwmR(float period, float dutyCycle, int direction); // Sets up PWM #1 with a specified period
-void config_pwmL(float period, float dutyCycle, int direction); // Sets up PWM #2 with a specified period
+void config_pwmR(float period, float dutyCycle, int direction);
+void config_pwmL(float period, float dutyCycle, int direction);
 
-//void updateMotorR(float dutyCycle, int direction);
-//void updateMotorL(float dutyCylce, int direction);
+int stepsFromAngle(float angle);
 
 void __attribute__((interrupt, no_auto_psv)) _OC1Interrupt(void) {
 
@@ -29,35 +29,35 @@ void __attribute__((interrupt, no_auto_psv)) _OC1Interrupt(void) {
 
     if (steps1 >= 0) {
         ++steps1;
-            //After 4 Revolutions prepare for turn
-    
-            //Shut motor down
-            if (steps1 == 400) {
-                mlON = 1; //Shut motor off before changing directions
-    
-            }
-    
-            
-            //Leaves motor off for 50 counts before executing turn
-            if (steps1 == 450) {
-                
-                mlON = 0; //Turn motor on again
-                
-            }
-    
-            //Shut motor down
-            if (steps1 == 720) {
-    
-                mlON = 1; // Shut motor off
-            }
-    
-            //Leaves motor off for 50 counts before moving again
-            if (steps1 == 770) {
-                mlON = 0; //Turn motor on
-    
-            }
+        //After 4 Revolutions prepare for turn
         
-        if (steps1 == 1080) {
+        //Shut motor down
+        if (steps1 == fullTurnSteps) {
+            mlON = 1; //Shut motor off before changing directions
+            
+        }
+        
+        
+        //Leaves motor off for 50 counts before executing turn
+        if (steps1 == fullTurnSteps + pauseTime) {
+            
+            mlON = 0; //Turn motor on again
+            
+        }
+        
+        //Shut motor down
+        if (steps1 == fullTurnSteps + pauseTime + stepsFromAngle(90)) {
+            
+            mlON = 1; // Shut motor off
+        }
+        
+        //Leaves motor off for 50 counts before moving again
+        if (steps1 == fullTurnSteps + 2 * pauseTime + stepsFromAngle(90)) {
+            mlON = 0; //Turn motor on
+            
+        }
+        
+        if (steps1 == 2 * fullTurnSteps + 2 * pauseTime + stepsFromAngle(90)) {
             steps1 = -1;
             mlON = 1;
         }
@@ -174,6 +174,24 @@ void config_pwmL(float period, float dutyCycle, int direction)
     _OC1IF = 0; // Clear OCx interrupt flag
 
 }
+
+int stepsFromAngle(float angle) {
+    
+    float angleInRads = angle * pi / 180;
+    
+    int steps = 0;
+    float wheelDiameter = 3.5;
+    float radius = 5;
+    float arcLength = 0;
+    
+    arcLength = angleInRads * radius;
+    
+    steps = arcLength * pi * wheelDiameter; 
+    
+    return steps;
+}
+
+
  /*
  PERIOD CALCULATION:
  
