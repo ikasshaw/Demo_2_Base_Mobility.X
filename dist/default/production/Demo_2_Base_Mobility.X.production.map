@@ -82,11 +82,11 @@ Default Scalar Model: Small
 
 section                    address   length (PC units)   length (bytes) (dec)
 -------                    -------   -----------------   --------------------
-.text                        0x200               0x356           0x501  (1281)
-.text                        0x556               0x116           0x1a1  (417)
-.dinit                       0x66c                0x12            0x1b  (27)
+.text                        0x200               0x346           0x4e9  (1257)
+.text                        0x546                0xf0           0x168  (360)
+.dinit                       0x636                0x12            0x1b  (27)
 
-                 Total "program" memory used (bytes):          0x6bd  (1725) 10%
+                 Total "program" memory used (bytes):          0x66c  (1644) 10%
 
 
 "data" Memory  [Origin = 0x800, Length = 0x800]
@@ -130,50 +130,46 @@ External Symbols in Program Memory (by address):
                   0x000252                  __data_init_standard
                   0x000252                  __data_init
                   0x0002c8                  __OC1Interrupt
-                  0x00031a                  __OC2Interrupt
-                  0x000368                  __DefaultInterrupt
-                  0x00036e                  ___fixsfsi
-                  0x0003b0                  ___fixunssfsi
-                  0x0003e6                  ___floatunsisf
-                  0x0003ea                  __funpack
-                  0x000414                  ___mulsf3
-                  0x00047c                  ___floatundisf
-                  0x0004da                  __fpack
-                  0x000526                  __funpack2
-                  0x000536                  __fPropagateNaN
-                  0x000548                  __fbopExit
-                  0x000550                  __fbopReturnNaN
-                  0x000556                  _main
-                  0x00057a                  _config_pwmR
-                  0x0005d2                  _config_pwmL
-                  0x000638                  _updateMotorR
-                  0x000652                  _updateMotorL
+                  0x000316                  __OC2Interrupt
+                  0x000358                  __DefaultInterrupt
+                  0x00035e                  ___fixsfsi
+                  0x0003a0                  ___fixunssfsi
+                  0x0003d6                  ___floatunsisf
+                  0x0003da                  __funpack
+                  0x000404                  ___mulsf3
+                  0x00046c                  ___floatundisf
+                  0x0004ca                  __fpack
+                  0x000516                  __funpack2
+                  0x000526                  __fPropagateNaN
+                  0x000538                  __fbopExit
+                  0x000540                  __fbopReturnNaN
+                  0x000546                  _main
+                  0x000568                  _config_pwmR
+                  0x0005d0                  _config_pwmL
 
 External Symbols in Program Memory (by name):
 
-                  0x000368                  __DefaultInterrupt
+                  0x000358                  __DefaultInterrupt
                   0x0002c8                  __OC1Interrupt
-                  0x00031a                  __OC2Interrupt
-                  0x00036e                  ___fixsfsi
-                  0x0003b0                  ___fixunssfsi
-                  0x00047c                  ___floatundisf
-                  0x0003e6                  ___floatunsisf
-                  0x000414                  ___mulsf3
+                  0x000316                  __OC2Interrupt
+                  0x00035e                  ___fixsfsi
+                  0x0003a0                  ___fixunssfsi
+                  0x00046c                  ___floatundisf
+                  0x0003d6                  ___floatunsisf
+                  0x000404                  ___mulsf3
                   0x000252                  __data_init
                   0x000252                  __data_init_standard
-                  0x000536                  __fPropagateNaN
-                  0x000548                  __fbopExit
-                  0x000550                  __fbopReturnNaN
-                  0x0004da                  __fpack
-                  0x0003ea                  __funpack
-                  0x000526                  __funpack2
+                  0x000526                  __fPropagateNaN
+                  0x000538                  __fbopExit
+                  0x000540                  __fbopReturnNaN
+                  0x0004ca                  __fpack
+                  0x0003da                  __funpack
+                  0x000516                  __funpack2
                   0x00023c                  __psv_init
                   0x000200                  __resetPRI
-                  0x0005d2                  _config_pwmL
-                  0x00057a                  _config_pwmR
-                  0x000556                  _main
-                  0x000652                  _updateMotorL
-                  0x000638                  _updateMotorR
+                  0x0005d0                  _config_pwmL
+                  0x000568                  _config_pwmR
+                  0x000546                  _main
 
 Memory Configuration
 
@@ -223,7 +219,7 @@ LOAD /Applications/microchip/xc16/v1.70/bin/bin/../../lib/libfx-elf.a
                   0x000002          0x2 SHORT 0x0 ((ABSOLUTE (__reset) >> 0x10) & 0x7f)
                   0x000003          0x2 SHORT 0x0
 
-.text             0x000200        0x356
+.text             0x000200        0x346
  *(.init)
  .init            0x000200         0x4c /Applications/microchip/xc16/v1.70/bin/bin/../../lib/liblega-pic30-elf.a(crt0_standard.o)
                   0x000200                  __reset
@@ -235,48 +231,48 @@ LOAD /Applications/microchip/xc16/v1.70/bin/bin/../../lib/libfx-elf.a
  *(.user_init)
  *(.handle)
  *(.isr*)
- .isr.text        0x0002c8         0xa0 build/default/production/Demo2.o
+ .isr.text        0x0002c8         0x90 build/default/production/Demo2.o
                   0x0002c8                  __OC1Interrupt
-                  0x00031a                  __OC2Interrupt
- .isr             0x000368          0x4 default_isr
-                  0x000368                  __DefaultInterrupt
+                  0x000316                  __OC2Interrupt
+ .isr             0x000358          0x4 default_isr
+                  0x000358                  __DefaultInterrupt
  *(.libc)
  *(.libm)
  *(.libdsp)
  *(.lib*)
  .libpic30_crt_start_mode
-                  0x00036c          0x2 /Applications/microchip/xc16/v1.70/bin/bin/../../lib/liblega-pic30-elf.a(crt_start_mode_normal.Leo)
-                  0x00036c                  __crt_start_mode_normal
-                  0x00036c                  __crt_start_mode
- .libm.fixsfsi    0x00036e         0x42 /Applications/microchip/xc16/v1.70/bin/bin/../../lib/libm-elf.a(fixsfsi.eo)
-                  0x00036e                  _(float, int, long long, short, float, short, int)
+                  0x00035c          0x2 /Applications/microchip/xc16/v1.70/bin/bin/../../lib/liblega-pic30-elf.a(crt_start_mode_normal.Leo)
+                  0x00035c                  __crt_start_mode_normal
+                  0x00035c                  __crt_start_mode
+ .libm.fixsfsi    0x00035e         0x42 /Applications/microchip/xc16/v1.70/bin/bin/../../lib/libm-elf.a(fixsfsi.eo)
+                  0x00035e                  _(float, int, long long, short, float, short, int)
  .libm.fixunssfsi
-                  0x0003b0         0x36 /Applications/microchip/xc16/v1.70/bin/bin/../../lib/libm-elf.a(fixunssfsi.eo)
-                  0x0003b0                  ___fixunssfsi
+                  0x0003a0         0x36 /Applications/microchip/xc16/v1.70/bin/bin/../../lib/libm-elf.a(fixunssfsi.eo)
+                  0x0003a0                  ___fixunssfsi
  .libm.floatunsisf
-                  0x0003e6          0x4 /Applications/microchip/xc16/v1.70/bin/bin/../../lib/libm-elf.a(floatunsisf.eo)
-                  0x0003e6                  ___floatunsisf
- .libm.funpack    0x0003ea         0x2a /Applications/microchip/xc16/v1.70/bin/bin/../../lib/libm-elf.a(funpack.eo)
-                  0x0003ea                  __funpack
- .libm.mulsf3     0x000414         0x68 /Applications/microchip/xc16/v1.70/bin/bin/../../lib/libm-elf.a(mulsf3.eo)
-                  0x000414                  ___mulsf3
+                  0x0003d6          0x4 /Applications/microchip/xc16/v1.70/bin/bin/../../lib/libm-elf.a(floatunsisf.eo)
+                  0x0003d6                  ___floatunsisf
+ .libm.funpack    0x0003da         0x2a /Applications/microchip/xc16/v1.70/bin/bin/../../lib/libm-elf.a(funpack.eo)
+                  0x0003da                  __funpack
+ .libm.mulsf3     0x000404         0x68 /Applications/microchip/xc16/v1.70/bin/bin/../../lib/libm-elf.a(mulsf3.eo)
+                  0x000404                  ___mulsf3
  .libm.floatundisf
-                  0x00047c         0x5e /Applications/microchip/xc16/v1.70/bin/bin/../../lib/libm-elf.a(floatundisf.eo)
-                  0x00047c                  ___floatundisf
- .libm.fpack      0x0004da         0x4c /Applications/microchip/xc16/v1.70/bin/bin/../../lib/libm-elf.a(fpack.eo)
-                  0x0004da                  __fpack
+                  0x00046c         0x5e /Applications/microchip/xc16/v1.70/bin/bin/../../lib/libm-elf.a(floatundisf.eo)
+                  0x00046c                  ___floatundisf
+ .libm.fpack      0x0004ca         0x4c /Applications/microchip/xc16/v1.70/bin/bin/../../lib/libm-elf.a(fpack.eo)
+                  0x0004ca                  __fpack
  .libm.funpack2
-                  0x000526         0x10 /Applications/microchip/xc16/v1.70/bin/bin/../../lib/libm-elf.a(funpack2.eo)
-                  0x000526                  __funpack2
+                  0x000516         0x10 /Applications/microchip/xc16/v1.70/bin/bin/../../lib/libm-elf.a(funpack2.eo)
+                  0x000516                  __funpack2
  .libm.fPropagateNaN
-                  0x000536         0x12 /Applications/microchip/xc16/v1.70/bin/bin/../../lib/libm-elf.a(futil.eo)
-                  0x000536                  __fPropagateNaN
+                  0x000526         0x12 /Applications/microchip/xc16/v1.70/bin/bin/../../lib/libm-elf.a(futil.eo)
+                  0x000526                  __fPropagateNaN
  .libm.fbobExit
-                  0x000548          0x8 /Applications/microchip/xc16/v1.70/bin/bin/../../lib/libm-elf.a(futil.eo)
-                  0x000548                  __fbopExit
+                  0x000538          0x8 /Applications/microchip/xc16/v1.70/bin/bin/../../lib/libm-elf.a(futil.eo)
+                  0x000538                  __fbopExit
  .libm.fbopReturnNaN
-                  0x000550          0x6 /Applications/microchip/xc16/v1.70/bin/bin/../../lib/libm-elf.a(futil.eo)
-                  0x000550                  __fbopReturnNaN
+                  0x000540          0x6 /Applications/microchip/xc16/v1.70/bin/bin/../../lib/libm-elf.a(futil.eo)
+                  0x000540                  __fbopReturnNaN
 
 usercode
  *(usercode)
@@ -308,22 +304,22 @@ __FDS
 .comment
  *(.comment)
 
-.debug_info       0x000000       0x1334
+.debug_info       0x000000       0x12ce
  *(.debug_info)
- .debug_info      0x000000       0x1334 build/default/production/Demo2.o
+ .debug_info      0x000000       0x12ce build/default/production/Demo2.o
  *(.gnu.linkonce.wi.*)
 
 .debug_abbrev     0x000000        0x146
  *(.debug_abbrev)
  .debug_abbrev    0x000000        0x146 build/default/production/Demo2.o
 
-.debug_line       0x000000        0x158
+.debug_line       0x000000        0x151
  *(.debug_line)
- .debug_line      0x000000        0x158 build/default/production/Demo2.o
+ .debug_line      0x000000        0x151 build/default/production/Demo2.o
 
-.debug_frame      0x000000         0xde
+.debug_frame      0x000000         0xaa
  *(.debug_frame)
- .debug_frame     0x000000         0xde build/default/production/Demo2.o
+ .debug_frame     0x000000         0xaa build/default/production/Demo2.o
 
 .debug_str        0x000000         0xc4
  *(.debug_str)
@@ -336,10 +332,10 @@ __FDS
  *(.debug_macinfo)
 
 .debug_pubnames
-                  0x000000         0xa9
+                  0x000000         0x87
  *(.debug_pubnames)
  .debug_pubnames
-                  0x000000         0xa9 build/default/production/Demo2.o
+                  0x000000         0x87 build/default/production/Demo2.o
 
 .debug_ranges
  *(.debug_ranges)
@@ -1020,13 +1016,11 @@ __c30_signature
  .ivt._OC2Interrupt
                   0x000020          0x2 build/default/production/Demo2.o
 
-.text             0x000556        0x116
- .text            0x000556        0x116 build/default/production/Demo2.o
-                  0x000556                  _main
-                  0x00057a                  _config_pwmR
-                  0x0005d2                  _config_pwmL
-                  0x000638                  _updateMotorR
-                  0x000652                  _updateMotorL
+.text             0x000546         0xf0
+ .text            0x000546         0xf0 build/default/production/Demo2.o
+                  0x000546                  _main
+                  0x000568                  _config_pwmR
+                  0x0005d0                  _config_pwmL
 
-.dinit            0x00066c         0x12
- .dinit           0x00066c         0x12 data_init
+.dinit            0x000636         0x12
+ .dinit           0x000636         0x12 data_init
